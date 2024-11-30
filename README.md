@@ -22,7 +22,7 @@ When Jenkins starts, you'll need to unlock it using an initial password. You'll 
 > 
 > `<initial_admin_password>`
 > 
-> This may also be found at: /var/> jenkins_home/secrets/> initialAdminPassword
+> This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
 > 
 > Copy the password provided and paste it into the Jenkins setup page to proceed with the installation.
 
@@ -46,7 +46,7 @@ Dashboard --> select project --> Configure --> General --> Github Project --> wr
 Create a new Jenkins job with a freestyle project.  
 If you encounter the ICU Package error, use the following command to resolve it:
 
-        sudo docker exec -it -u root <container_id> bash  
+        docker exec -it -u root <container_id> bash  
         apt-get install libicu-dev
 
 ## Step 9: Build Log Output
@@ -78,3 +78,11 @@ Here's an example of a successful build log:
     14:51:48 .NET Command Completed - Exit Code: 0  
     14:51:49 Finished: SUCCESS
 
+
+Alternatively, you can use a pipeline approach. Follow these steps:
+
+1. Create a New Item
+Start by creating a new item and choose the pipeline option.
+
+2. Configure the Pipeline
+In the configuration section, add the contents of your Jenkinsfile to define the pipeline stages and steps.
